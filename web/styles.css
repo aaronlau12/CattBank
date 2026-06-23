@@ -1,0 +1,106 @@
+/*
+Author: Aaron Lau
+Course: CIST 2373 - Java Programming III
+Lab - Lab #2 - HTML
+Honor Statement - I promise that I wrote this code.
+I did not copy this code from someone else or the Internet
+And I did not use any AI Tools to Generate this code.
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #04AA6D;
+}
+
+p {
+    font-size: 20px;
+    color: black;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #04AA6D;
+}
+
+a:hover {
+    color: #028a58;
+}
+
+/* Bordered form */
+form {
+    border: 3px solid #f1f1f1;
+}
+
+/*  inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* buttons */
+button {
+    background-color: #04AA6D;
+    color:white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%
+}
+
+/* buttonn hover effect */
+button:hover {
+    opacity: 0.7;
+}
+
+/* extra style for cancel button */
+.clearBtn {
+    width: 100%;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* center image */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+/* avatar image */
+img.avatar {
+    width: 25;
+    border-radius: 50%;
+}
+
+/* add padding to container */
+.container {
+    padding: 16px
+}
+
+/* forgot password text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* change styles for span and cancel button on extra small screens */ 
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
