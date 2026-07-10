@@ -102,12 +102,8 @@ public class Customer {
         AccountList accountList = new AccountList();
 
         try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            System.out.println("Driver loaded.");
-
-            //create connection
-            Connection conn = 
-                    DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\aaron\\Desktop\\Summer 2026\\Java III\\ChattBankMDB.mdb");
+            
+            Connection conn = DBConnection.getConnection();
             
             String sql = "SELECT * FROM Accounts WHERE Cid = ?";
             
@@ -139,18 +135,16 @@ public class Customer {
             System.out.println(ex.getMessage());
         }
         
-        return aList;
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        return accountList;
     }//end getAccounts
     
     public void selectDb(String custId) {
         try {
-            //load driver
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            System.out.println("Driver loaded");
-            
-            //create conncection
-            Connection conn =
-                    DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\aaron\\Desktop\\Summer 2026\\Java III\\ChattBankMDB.mdb");
+            Connection conn = DBConnection.getConnection();
             
             //sql statement
             String select = "SELECT * FROM Customers WHERE CustID = ?";
@@ -190,6 +184,10 @@ public class Customer {
         catch (ClassNotFoundException ex) {
             System.out.println("Class Not Found Exception: " + ex.getMessage());
         }
+        
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }//end select
     
     public void insertDb(String custId,
@@ -200,14 +198,8 @@ public class Customer {
             String custEmail) {
         
         try {
-            //load driver
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            System.out.println("Driver loaded.");
-            
-            //create connection
-            Connection conn = 
-                    DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\aaron\\Desktop\\Summer 2026\\Java III\\ChattBankMDB.mdb");
-        
+            Connection conn = DBConnection.getConnection();
+           
             String insert = "INSERT INTO Customers (CustID, CustPassword, CustFirstName, CustLastName, CustAddress, CustEmail) "
                     + "VALUES (?, ?, ?, ?, ?, ?)";
             
@@ -243,15 +235,15 @@ public class Customer {
         catch (ClassNotFoundException ex) {
             System.out.println("Class Not Found Exception: " + ex.getMessage());
         }
+        
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }//end insert
     
     public void updateDb() {
         try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            System.out.println("Driver loaded");
-            
-            Connection conn = 
-                    DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\aaron\\Desktop\\Summer 2026\\Java III\\ChattBankMDB.mdb");
+            Connection conn = DBConnection.getConnection();
             
             String update = "UPDATE Customers "
                     + "SET CustPassword = ?, CustFirstName = ?, CustLastName = ?, CustAddress = ?, CustEmail = ? "
@@ -287,15 +279,15 @@ public class Customer {
         catch (ClassNotFoundException ex) {
             System.out.println("Class Not Found Exception: " + ex.getMessage());
         }
+        
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }//end update
     
     public void deleteDb() {
         try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            System.out.println("Driver loaded");
-            
-            Connection conn =
-                    DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\aaron\\Desktop\\Summer 2026\\Java III\\ChattBankMDB.mdb");
+            Connection conn = DBConnection.getConnection();
             
             String delete = "DELETE FROM Customers WHERE CustID = ?";
             
@@ -323,6 +315,10 @@ public class Customer {
         
         catch (ClassNotFoundException ex) {
             System.out.println("Class Not Found Exception: " + ex.getMessage());
+        }
+        
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
     }//end delete
     
