@@ -73,13 +73,7 @@ public class Account {
     public void selectAcct(String acctNo) {
         try {
             //load driver
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            System.out.println("Driver loaded.");
-            
-            //get connection
-            Connection conn = 
-                    DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\aaron\\Desktop\\Summer 2026\\Java III\\ChattBankMDB.mdb");
-            
+            Connection conn = DBConnection.getConnection();
             //sql statement
             String select = "SELECT * FROM Accounts WHERE AcctNo = ?";
             
@@ -114,6 +108,10 @@ public class Account {
         catch (ClassNotFoundException ex) {
             System.out.println("Class Not Found Exception: " + ex.getMessage());
         }
+        
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }//end select
     
     public void insertAcct(String acctNo,
@@ -122,11 +120,7 @@ public class Account {
             double balance) {
         
         try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            System.out.println("Driver loaded.");
-            
-            Connection conn =
-                    DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\aaron\\Desktop\\Summer 2026\\Java III\\ChattBankMDB.mdb");
+            Connection conn = DBConnection.getConnection();
             
             String insert = "INSERT INTO Accounts (AcctNo, Cid, Type, Balance) "
                     + "VALUES (?, ?, ?, ?)";
@@ -162,16 +156,16 @@ public class Account {
         catch (ClassNotFoundException ex) {
             System.out.println("Class Not Found Exception: " + ex.getMessage());
         }
+        
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }//end insert
     
     public void updateAcct() {
         
         try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            System.out.println("Driver loaded.");
-            
-            Connection conn =
-                    DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\aaron\\Desktop\\Summer 2026\\Java III\\ChattBankMDB.mdb");
+            Connection conn = DBConnection.getConnection();
             
             String update = "UPDATE Accounts " 
                     + "SET Cid = ?, Type = ?, Balance = ? "
@@ -204,16 +198,16 @@ public class Account {
         catch (ClassNotFoundException ex) {
             System.out.println("Class Not Found Exception: " + ex.getMessage());
         }
+        
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }//end update
     
     public void deleteAcct() {
         
         try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            System.out.println("Driver loaded.");
-            
-            Connection conn =
-                    DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\aaron\\Desktop\\Summer 2026\\Java III\\ChattBankMDB.mdb");
+            Connection conn = DBConnection.getConnection();
             
             String delete = ("DELETE FROM Accounts WHERE AcctNo = ?");
             
@@ -241,6 +235,10 @@ public class Account {
         
         catch (ClassNotFoundException ex) {
             System.out.println("Class Not Found Exception: " + ex.getMessage());
+        }
+        
+        catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
     }//end delete
     
